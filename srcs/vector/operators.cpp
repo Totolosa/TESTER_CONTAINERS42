@@ -1,21 +1,21 @@
 #include "test_vector.hpp"
 
 int test() {
-	vector<int> v;
+	vector<NoLeaksPlease> v;
 	std::cout << "----------> = <----------" << std::endl;
-	print_vec<vector<int> >(v);
-	v.push_back(1);
-	v.push_back(2);
-	v.push_back(3);
-	v.push_back(4);
-	v.push_back(5);
-	print_vec<vector<int> >(v);
+	print_vec<vector<NoLeaksPlease> >(v);
+	v.push_back(NoLeaksPlease(3, "test"));
+	v.push_back(NoLeaksPlease(3, "test"));
+	v.push_back(NoLeaksPlease(3, "test"));
+	v.push_back(NoLeaksPlease(3, "test"));
+	v.push_back(NoLeaksPlease(3, "test"));
+	print_vec<vector<NoLeaksPlease> >(v);
 
-	vector<int> v2 = v;
-	print_vec<vector<int> >(v2);
-	vector<int> v3;
+	vector<NoLeaksPlease> v2 = v;
+	print_vec<vector<NoLeaksPlease> >(v2);
+	vector<NoLeaksPlease> v3;
 	v2 = v3;
-	print_vec<vector<int> >(v2);
+	print_vec<vector<NoLeaksPlease> >(v2);
 
 	// std::cout << "----------> <= <----------" << std::endl;
 
