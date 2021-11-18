@@ -14,6 +14,13 @@ void print_vec(C & cont) {
 	std::cout << std::endl << "size = " << cont.size() << std::endl;
 	std::cout << "capacity = " << cont.capacity() << std::endl << std::endl;
 }
+template <typename C>
+void print_vec(const C & cont) {
+	for (typename C::size_type i = 0; i < cont.size(); i++)
+		std::cout << cont[i] << "|";
+	std::cout << std::endl << "size = " << cont.size() << std::endl;
+	std::cout << "capacity = " << cont.capacity() << std::endl << std::endl;
+}
 
 class NoLeaksPlease {
 	public:
