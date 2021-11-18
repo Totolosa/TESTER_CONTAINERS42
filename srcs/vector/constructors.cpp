@@ -1,6 +1,8 @@
 #include "test_vector.hpp"
 
 int test() {
+
+	std::cout << "----------> Default constructor <----------" << std::endl;	
 	vector<NoLeaksPlease> v;
 	print_vec<vector<NoLeaksPlease> >(v);
 	v.push_back(NoLeaksPlease(3, "test1"));
@@ -10,14 +12,21 @@ int test() {
 	v.push_back(NoLeaksPlease(3, "test5"));
 	print_vec<vector<NoLeaksPlease> >(v);
 
-	vector<NoLeaksPlease> v2(10, NoLeaksPlease(3, "v2, test6"));
-	print_vec<vector<NoLeaksPlease> >(v2);
-	vector<NoLeaksPlease> v3(20);
-	print_vec<vector<NoLeaksPlease> >(v3);
+	std::cout << "----------> Size + Value Constructor <----------" << std::endl;
+	vector<NoLeaksPlease> va2(20);
+	print_vec<vector<NoLeaksPlease> >(va2);
+	vector<NoLeaksPlease> va3(0);
+	print_vec<vector<NoLeaksPlease> >(va3);
+	vector<NoLeaksPlease> va4(10, NoLeaksPlease(3, "v4, test6"));
+	print_vec<vector<NoLeaksPlease> >(va4);
+	vector<NoLeaksPlease> va5(0, NoLeaksPlease(3, "v5, test7"));
+	print_vec<vector<NoLeaksPlease> >(va5);
 
-	vector<NoLeaksPlease> v4(v2);
+	std::cout << "----------> Copy constructor <----------" << std::endl;
+	vector<NoLeaksPlease> v4(v);
 	print_vec<vector<NoLeaksPlease> >(v4);
 
+	std::cout << "----------> Iterator constructor <----------" << std::endl;
 	const vector<NoLeaksPlease> vc(v);
 	vector<NoLeaksPlease>::iterator it1 = v.begin() + 1;
 	vector<NoLeaksPlease>::iterator it2 = v.begin() + 4;
@@ -39,8 +48,6 @@ int test() {
 	print_vec<vector<NoLeaksPlease> >(v8);
 	vector<NoLeaksPlease> v9(4, NoLeaksPlease(3, "v2, test7"));
 	print_vec<vector<NoLeaksPlease> >(v9);
-
-
 
 	return 0;
 }
