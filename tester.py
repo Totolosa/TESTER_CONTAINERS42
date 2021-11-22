@@ -20,7 +20,7 @@ class colors:
 
 def main(argv):
 	try:
-		opts, args = getopt.getopt(argv,"vsmdl")
+		opts, args = getopt.getopt(argv,"vsmdlo")
 	except getopt.GetoptError:
 		print ('Problem args tester.py')
 		sys.exit(2)
@@ -28,11 +28,13 @@ def main(argv):
 	vector_test = False
 	stack_test = False
 	map_test = False
+	other_test = False
 	leaks_test = False
 	for opt, arg in opts:
 		if opt == "-v" : vector_test = True
 		if opt == "-s" : stack_test = True
 		if opt == "-m" : map_test = True
+		if opt == "-o" : other_test = True
 		if opt == "-l" : leaks_test = True
 		if opt == "-d" : 
 			if os.path.exists("TESTER_CONTAINERS42/results"):
@@ -49,7 +51,7 @@ def main(argv):
 	if "main.cpp" in dirs : dirs.remove("main.cpp")
 	if "tester.py" in dirs : dirs.remove("tester.py")
 	for dir in dirs:
-		if all_test or (vector_test and dir == "vector") or (stack_test and dir == "stack") or (map_test and dir == "map"):
+		if all_test or (vector_test and dir == "vector") or (stack_test and dir == "stack") or (map_test and dir == "map") or (other_test and dir == "other"):
 			sub_dirs = os.listdir("TESTER_CONTAINERS42/srcs/" + dir)
 			print(colors.OKBLUE + colors.BOLD + "============\n-> " + dir.upper() + " <-\n============" + colors.END)
 			for sub_dir in sub_dirs:
