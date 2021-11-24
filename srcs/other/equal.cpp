@@ -21,9 +21,6 @@ int test() {
 	vector<int> vbis(v); 
 	vector<int> v2(v); 
 	v2.push_back(12);
-	v2.push_back(14);
-	v2.push_back(16);
-	v2.push_back(18);
 	vector<int> v3(v2);
 	v3.pop_back();
 	v3.push_back(17);
@@ -50,6 +47,7 @@ int test() {
 	std::cout << "equal v et vbis avec ref=v = " << equal(v.begin(), v.end(), vbis.begin()) << std::endl;
 	std::cout << "equal v et v2 avec ref=v = " << equal(v.begin(), v.end(), v2.begin()) << std::endl;
 	std::cout << "equal v et v2 avec ref=v2 = " << equal(v2.begin(), v2.end(), v.begin()) << std::endl;
+
 	std::cout << "equal(pred) v et vbis avec ref=v = " << equal(v.begin(), v.end(), vbis.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v et v2 avec ref=v = " << equal(v.begin(), v.end(), v2.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v et v2 avec ref=v2 = " << equal(v2.begin(), v2.end(), v.begin(), are_even<int>) << std::endl;

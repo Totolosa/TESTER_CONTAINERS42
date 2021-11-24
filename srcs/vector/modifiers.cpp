@@ -2,6 +2,7 @@
 
 int test() {
 	vector<NoLeaksPlease> v;
+	vector<NoLeaksPlease> vempty;
 	std::cout << "----------> push_back <----------" << std::endl;
 	print_vec<vector<NoLeaksPlease> >(v);
 	v.push_back(NoLeaksPlease(3, "test1"));
