@@ -14,18 +14,9 @@ int test() {
 	std::cout << *it << std::endl;
 	std::cout << it[3] << std::endl;
 
-	{
-		std::cout << std::endl << "----------> operators <----------" << std::endl;
-		std::cout << "* :" << std::endl;
-		std::cout << *(vc.begin()) << std::endl;
-		long long test_long = 1;
-		int test_int = 1;
-		char test_char = 1;
-		std::cout << *(vc.begin() + test_long) << std::endl;
-		std::cout << *(vc.begin() + test_int) << std::endl;
-		std::cout << *(vc.begin() + test_char) << std::endl;
-	}
-
+	std::cout << std::endl << "----------> operators <----------" << std::endl;
+	std::cout << "* :" << std::endl;
+	std::cout << *(vc.begin()) << std::endl;
 
 
 	std::cout << std::endl << "----------> const_iterator <----------" << std::endl;
