@@ -13,7 +13,7 @@ bool ft_size(T & a, T & b) {
 	return false;
 }
 
-int test() {
+void test() {
 	vector<std::string> v;
 	vector<std::string> v_empty;
 	v.push_back("un");
@@ -76,6 +76,4 @@ int test() {
 		std::cout << "lexico_compare+comp v et vplus = " << ft::lexicographical_compare(v.begin(), v.end(), vplus.begin(), vplus.end(), ft_size<std::string>) << std::endl;
 	}
 
-	
-	return 0;
 }

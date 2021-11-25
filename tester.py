@@ -64,10 +64,10 @@ def main(argv):
 				subprocess.run(("clang++ -D MINE -Werror -Wall -Wextra TESTER_CONTAINERS42/srcs/main.cpp -ITESTER_CONTAINERS42/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "_mine").split(), capture_output=False)
 				# if not os.path.exists(path_bin + "_std") or (os.path.exists(path_bin + "_std") and os.path.getctime(path_srcs_test) > os.path.getctime(path_bin + "_std")):
 				subprocess.run(("clang++ -Werror -Wall -Wextra TESTER_CONTAINERS42/srcs/main.cpp -ITESTER_CONTAINERS42/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "_std").split(), capture_output=False)
-				with open((path_result + "/stdout_mine"), "w") as outfile:
-					subprocess.run((path_bin + "_mine ").split(), stdout=outfile)
-				with open((path_result + "/stdout_std"), "w") as outfile:
-					subprocess.run((path_bin + "_std").split(), stdout=outfile)
+				with open((path_result + "/stdout_mine"), "w") as outfile, open((path_result + "/stderror_mine"), "w") as errfile:
+					subprocess.run((path_bin + "_mine ").split(), stdout=outfile, stderr=errfile)
+				with open((path_result + "/stdout_std"), "w") as outfile, open((path_result + "/stderror_std"), "w") as errfile:
+					subprocess.run((path_bin + "_std").split(), stdout=outfile, stderr=errfile)
 				with open((path_result + "/diff_stdout"), "w") as outfile:
 					subprocess.run(("diff " + path_result + "/stdout_mine " + path_result + "/stdout_std").split(), stdout=outfile)
 				if os.path.getsize(path_result + "/diff_stdout") == 0:

@@ -3,8 +3,11 @@
 
 template <typename T>
 bool are_even(T & a, T & b) {
-	if (a % 2 == 0 && b % 2 == 0)
+	if (a % 2 == 0 && b % 2 == 0){
+		std::cout << "a = " << a << ", b = " << b << std::endl;
 		return true;
+	}
+
 	return false;
 }
 
@@ -50,7 +53,7 @@ int test() {
 
 	std::cout << "equal(pred) v et vbis avec ref=v = " << equal(v.begin(), v.end(), vbis.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v et v2 avec ref=v = " << equal(v.begin(), v.end(), v2.begin(), are_even<int>) << std::endl;
-	std::cout << "equal(pred) v et v2 avec ref=v2 = " << equal(v2.begin(), v2.end(), v.begin(), are_even<int>) << std::endl;
+	// std::cout << "equal(pred) v et v2 avec ref=v2 = " << equal(v2.begin(), v2.end(), v.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v2 et v3 avec ref=v2 = " << equal(v2.begin(), v2.end(), v3.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v2 et v3 avec ref=v3 = " << equal(v3.begin(), v3.end(), v2.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v2 et v4 avec ref=v2 = " << equal(v2.begin(), v2.end(), v4.begin(), are_even<int>) << std::endl;

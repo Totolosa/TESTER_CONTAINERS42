@@ -38,7 +38,7 @@ class NoLeaksPlease {
 		~NoLeaksPlease() { delete [] s; };
 		int getSize() const { return _n; }
 		std::string getString(int index) const { return s[index]; }
-		void showstr() {
+		void showstr() const {
 			for (int i = 0; i < _n; i++)
 				std::cout << "\"" << s[i] << "\"" << std::endl;
 		}
