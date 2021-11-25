@@ -22,13 +22,6 @@ int test() {
 	v3.push_back(6);
 	print_vec<vector<int> >(v3);
 
-	std::cout << "v :" << std::endl;
-	print_vec<vector<int> >(v);
-	std::cout << "v2 :" << std::endl;
-	print_vec<vector<int> >(v2);
-	std::cout << "v3 :" << std::endl;
-	print_vec<vector<int> >(v3);
-
 	std::cout << "----------> == <----------" << std::endl;
 	std::cout << (v == vempty) << std::endl;
 	std::cout << (vempty == v) << std::endl;
@@ -42,42 +35,6 @@ int test() {
 	std::cout << (vempty != vempty2) << std::endl;
 	std::cout << (v != v2) << std::endl;
 	std::cout << (v != v3) << std::endl;
-
-	std::cout << "----------> < <----------" << std::endl;
-	std::cout << (v < vempty) << std::endl;
-	std::cout << (vempty < v) << std::endl;
-	std::cout << (vempty < vempty2) << std::endl;
-	std::cout << (v < v2) << std::endl;
-	std::cout << (v < v3) << std::endl;
-	std::cout << (v2 < v) << std::endl;
-	std::cout << (v3 < v) << std::endl;
-
-	std::cout << "----------> <= <----------" << std::endl;
-	std::cout << (v <= vempty) << std::endl;
-	std::cout << (vempty <= v) << std::endl;
-	std::cout << (vempty <= vempty2) << std::endl;
-	std::cout << (v <= v2) << std::endl;
-	std::cout << (v <= v3) << std::endl;
-	std::cout << (v2 <= v) << std::endl;
-	std::cout << (v3 <= v) << std::endl;
-
-	std::cout << "----------> > <----------" << std::endl;
-	std::cout << (v > vempty) << std::endl;
-	std::cout << (vempty > v) << std::endl;
-	std::cout << (vempty > vempty2) << std::endl;
-	std::cout << (v > v2) << std::endl;
-	std::cout << (v > v3) << std::endl;
-	std::cout << (v2 > v) << std::endl;
-	std::cout << (v3 > v) << std::endl;
-
-	std::cout << "----------> >= <----------" << std::endl;
-	std::cout << (v >= vempty) << std::endl;
-	std::cout << (vempty >= v) << std::endl;
-	std::cout << (vempty >= vempty2) << std::endl;
-	std::cout << (v >= v2) << std::endl;
-	std::cout << (v >= v3) << std::endl;
-	std::cout << (v2 >= v) << std::endl;
-	std::cout << (v3 >= v) << std::endl;
 
 
 	return 0;
