@@ -152,6 +152,17 @@ void test() {
 		std::cout << (tmp <= rit_it + 1) << std::endl;
 		std::cout << (tmpc <= rcit_it + 1) << std::endl;
 	}
+	{
+		std::cout << std::endl << "----------> other tests <----------" << std::endl;
+		vector<NoLeaksPlease>::const_reverse_iterator itc1;
+		itc1 = v.rbegin();
+		std::cout << *itc1 << std::endl;
+		vector<NoLeaksPlease>::const_reverse_iterator itc2(v.begin());
+		std::cout << *itc2 << std::endl;
+		
+		// vector<NoLeaksPlease>::reverse_iterator it1 = itc1;
+		// std::cout << *it1 << std::endl;
+	}
 
 
 

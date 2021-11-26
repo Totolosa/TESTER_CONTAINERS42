@@ -168,7 +168,9 @@ void test() {
 		std::cout << *(vc.begin() + test_char) << std::endl;
 	}
 		vector<NoLeaksPlease>::const_iterator itc1;
-		// itc1 = v.begin();
-		// std::cout << *it << std::endl;
+		itc1 = v.begin();
+		std::cout << *itc1 << std::endl;
+		vector<NoLeaksPlease>::const_iterator itc2(v.begin());
+		std::cout << *itc2 << std::endl;
 
 }
