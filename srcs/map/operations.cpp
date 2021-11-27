@@ -48,4 +48,13 @@ void test()
       it = c.upper_bound(2);
       cout << "upper_bound: " << it->first << endl;
    }
+   cout << "----------> equal_range <----------" << endl;
+	{
+   	typedef const map<int, int> Map;
+   	// typedef pair<Map::iterator, Map::iterator> Pair;
+      Map c(::basic());
+		// Pair p = c.equal_range(10);
+		// cout << p.first->second << endl;
+		// cout << p.second->second << endl;
+	}
 }

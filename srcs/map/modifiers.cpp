@@ -8,17 +8,31 @@ void test()
    cout << "----------> insert <----------" << endl;
    {
       Map c = ::basic();
+      Map::iterator it;
       pair<Map::iterator, bool> r;
       print_map<Map>(c);
       r = c.insert(Pair(10000, 10000));
-      c[-1] = r.first->second;
-      c[-2] = r.second;
+      cout << "inserted: " << r.first->second << endl;
+      cout << "add: " << r.second << endl;
       print_map<Map>(c);
       r = c.insert(Pair(-1, -1));
       cout << "inserted: " << r.first->second << endl;
       cout << "inserted: " << c[-1] << endl;
-      c[-3] = r.first->second;
-      c[-4] = r.second;
+      cout << "add: " << r.second << endl;
+      print_map<Map>(c);
+      r = c.insert(Pair(1, 1));
+      cout << "inserted: " << r.first->second << endl;
+      cout << "inserted: " << c[-1] << endl;
+      cout << "add: " << r.second << endl;
+      print_map<Map>(c);
+      it = c.insert(c.begin(), Pair(5, 5));
+      cout << "inserted: " << it->first << endl;
+      cout << "inserted: " << it->second << endl;
+      print_map<Map>(c);
+      Pair tab[10];
+      for (int i = 0; i < 10; i++)
+         tab[i] = Pair(i, i);
+      c.insert(&tab[0], &tab[10]);
       print_map<Map>(c);
    }
    cout << "----------> erase <----------" << endl;
@@ -56,6 +70,10 @@ void test()
       c[10] = 10;
       cout << "erase 10 (root last): " << c.erase(10) << endl;
       print_map<Map>(c);
+      c = ::basic();
+      c.erase(c.begin());
+      print_map<Map>(c);
+      c.erase(c.begin(), c.end());
    }
    cout << "----------> swap <----------" << endl;
    {
