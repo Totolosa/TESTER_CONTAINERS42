@@ -52,7 +52,7 @@ class NoLeaksPlease {
 			return *this;
 		}
 		friend std::ostream & operator<<(std::ostream & o, NoLeaksPlease const & rhs) {
-			o << "_n = " << rhs.getSize() << ", " ;
+			// o << "_n = " << rhs.getSize() << ", " ;
 			for (int i = 0; i < rhs.getSize(); i++)
 				o << "\"" << rhs.getString(i) << "\" " ;
 			return o;

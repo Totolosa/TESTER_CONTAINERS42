@@ -32,16 +32,28 @@ int test() {
 		std::cout << "insert it2 = " << *it2 << std::endl;
 		print_vec<vector<NoLeaksPlease> >(v);
 
-		vector<NoLeaksPlease>::iterator it3 = v.insert(v.begin() +3, static_cast<size_t>(2), NoLeaksPlease(1, "test10"));
+		vector<NoLeaksPlease>::iterator it3 = v.insert(v.begin() +3, 2, NoLeaksPlease(1, "test10"));
 		std::cout << "insert it3 = " << *it3 << std::endl;
 		print_vec<vector<NoLeaksPlease> >(v);
-		vector<NoLeaksPlease>::iterator it4 = v.insert(v.end(), static_cast<size_t>(20), NoLeaksPlease(1, "test11"));
+		vector<NoLeaksPlease>::iterator it4 = v.insert(v.end(), 20, NoLeaksPlease(1, "test11"));
 		std::cout << "insert it4 = " << *it4 << std::endl;
 		print_vec<vector<NoLeaksPlease> >(v);
 
+
 		std::cout << "insert metaprograming :" << std::endl;
-		v.insert(v.begin() + 2, v.begin() + 5, v.begin() + 7);
-		print_vec<vector<NoLeaksPlease> >(v);
+		vector<NoLeaksPlease> v2;
+		v2.insert(v2.begin(), v.begin() + 2, v.begin() + 5);
+		print_vec<vector<NoLeaksPlease> >(v2);
+		v2.insert(v2.begin(), v.begin(), v.begin() + 3);
+		print_vec<vector<NoLeaksPlease> >(v2);
+		v2.insert(v2.begin(), v.begin(), v.begin() + 9);
+		print_vec<vector<NoLeaksPlease> >(v2);
+		// v2.insert(v2.end() - 3, v2.begin(), v2.begin() + 9);
+		// print_vec<vector<NoLeaksPlease> >(v2);
+		// v3.insert(v3.begin() + 1, v3.begin(), v3.begin() + 3);
+		// print_vec<vector<NoLeaksPlease> >(v3);
+		// v3.insert(v3.begin() + 2, v3.begin(), v3.begin() + 4);
+		// print_vec<vector<NoLeaksPlease> >(v3);
 	}
 
 	std::cout << "----------> erase <----------" << std::endl;
@@ -59,7 +71,7 @@ int test() {
 	std::cout << "erase it = " << *it << std::endl;
 	print_vec<vector<NoLeaksPlease> >(v);
 	it = v.erase(v.begin(), v.end());
-	std::cout << "erase it = " << *it << std::endl;
+
 	print_vec<vector<NoLeaksPlease> >(v);
 	v.insert(v.begin(), static_cast<size_t>(20), 1);
 
