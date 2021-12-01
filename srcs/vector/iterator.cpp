@@ -112,7 +112,7 @@ void test() {
 
 	vector<NoLeaksPlease>::iterator tmp = it_it;
 	vector<NoLeaksPlease>::const_iterator tmpc = itc_it;
-	
+
 	{
 		std::cout << std::endl << "----------> operator == <----------" << std::endl;
 		std::cout << (tmp == it_it) << std::endl;
@@ -155,7 +155,7 @@ void test() {
 		std::cout << (tmp <= it_it + 1) << std::endl;
 		std::cout << (tmpc <= itc_it + 1) << std::endl;
 	}
-	
+
 	{
 		std::cout << std::endl << "----------> other tests <----------" << std::endl;
 		std::cout << "* :" << std::endl;

@@ -1,5 +1,4 @@
 #include "test_vector.hpp"
-#include "equal.hpp"
 
 template <typename T>
 bool are_even(T & a, T & b) {
@@ -20,9 +19,9 @@ int test() {
 	v.push_back(6);
 	v.push_back(8);
 	v.push_back(10);
-	const vector<int> vc(v); 
-	vector<int> vbis(v); 
-	vector<int> v2(v); 
+	const vector<int> vc(v);
+	vector<int> vbis(v);
+	vector<int> v2(v);
 	v2.push_back(12);
 	v2.push_back(14);
 	v2.push_back(16);
@@ -62,6 +61,6 @@ int test() {
 	std::cout << "equal(pred) v2 et v4 avec ref=v4 = " << equal(v4.begin(), v4.end(), v2.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v2 et v5 avec ref=v2 = " << equal(v2.begin(), v2.end(), v5.begin(), are_even<int>) << std::endl;
 	std::cout << "equal(pred) v2 et v5 avec ref=v4 = " << equal(v5.begin(), v5.end(), v2.begin(), are_even<int>) << std::endl;
-	
+
 	return 0;
 }
