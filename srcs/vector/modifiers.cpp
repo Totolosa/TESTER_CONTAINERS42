@@ -19,24 +19,20 @@ int test() {
 	v.pop_back();
 	print_vec<vector<NoLeaksPlease> >(v);
 
-	{	
+	{
 		std::cout << "----------> insert <----------" << std::endl;
 		vector<NoLeaksPlease>::iterator it0 = v.begin() + 2;
-		vector<NoLeaksPlease>::iterator it1 = v.insert(it0, NoLeaksPlease(1, "test6"));
-		std::cout << "insert it = " << *it1 << std::endl;
+		v.insert(it0, NoLeaksPlease(1, "test6"));
 		print_vec<vector<NoLeaksPlease> >(v);
 		v.push_back(NoLeaksPlease(1, "test7"));
 		v.push_back(NoLeaksPlease(1, "test8"));
 		print_vec<vector<NoLeaksPlease> >(v);
-		vector<NoLeaksPlease>::iterator it2 = v.insert(it0, NoLeaksPlease(1, "test9"));
-		std::cout << "insert it2 = " << *it2 << std::endl;
+		v.insert(it0, NoLeaksPlease(1, "test9"));
 		print_vec<vector<NoLeaksPlease> >(v);
 
-		vector<NoLeaksPlease>::iterator it3 = v.insert(v.begin() +3, 2, NoLeaksPlease(1, "test10"));
-		std::cout << "insert it3 = " << *it3 << std::endl;
+		v.insert(v.begin() +3, 2, NoLeaksPlease(1, "test10"));
 		print_vec<vector<NoLeaksPlease> >(v);
-		vector<NoLeaksPlease>::iterator it4 = v.insert(v.end(), 20, NoLeaksPlease(1, "test11"));
-		std::cout << "insert it4 = " << *it4 << std::endl;
+		v.insert(v.end(), 20, NoLeaksPlease(1, "test11"));
 		print_vec<vector<NoLeaksPlease> >(v);
 
 
