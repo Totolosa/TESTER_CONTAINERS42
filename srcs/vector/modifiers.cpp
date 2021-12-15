@@ -44,6 +44,7 @@ int test() {
 		print_vec<vector<NoLeaksPlease> >(v2);
 		v2.insert(v2.begin(), v.begin(), v.begin() + 9);
 		print_vec<vector<NoLeaksPlease> >(v2);
+
 		// v2.insert(v2.end() - 3, v2.begin(), v2.begin() + 9);
 		// print_vec<vector<NoLeaksPlease> >(v2);
 		// v3.insert(v3.begin() + 1, v3.begin(), v3.begin() + 3);

@@ -5,7 +5,7 @@ void test()
 	cout << "----------> empty <----------" << endl;
 	{
 		typedef map<int, int> Map;
-			Map c;
+		Map c;
 		cout << "empty: " << c.empty() << endl;
 		print_map<Map>(c);
 		c = ::basic();
@@ -21,7 +21,7 @@ void test()
 		print_map<Map>(c);
 		c[2] = 42;
 		print_map<Map>(c);
-		}
+	}
 	cout << "----------> const empty <----------" << endl;
 	{
 		typedef const map<int, int> Map;

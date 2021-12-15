@@ -172,5 +172,4 @@ void test() {
 		std::cout << *itc1 << std::endl;
 		vector<NoLeaksPlease>::const_iterator itc2(v.begin());
 		std::cout << *itc2 << std::endl;
-
 }

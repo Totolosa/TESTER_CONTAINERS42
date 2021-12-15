@@ -74,6 +74,10 @@ void test()
       c.erase(c.begin());
       print_map<Map>(c);
       c.erase(c.begin(), c.end());
+      cout << "erase all: " << endl;
+      Map c1 = ::basic();
+      c1.erase(c1.begin(), c1.end());
+      print_map<Map>(c1);
    }
    cout << "----------> swap <----------" << endl;
    {

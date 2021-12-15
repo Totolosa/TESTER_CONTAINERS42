@@ -18,7 +18,7 @@ void test() {
 	std::cout << std::endl << "----------> constructors + operator * <----------" << std::endl;
 	reverse_iterator<iterator> rit_def;
 	reverse_iterator<const_iterator> rcit_def;
-	reverse_iterator<iterator> rit_it(v.end());
+	vector<NoLeaksPlease>::reverse_iterator rit_it(v.end());
 	reverse_iterator<const_iterator> rcit_it(vc.end() - 1);
 	std::cout << *rit_it << std::endl;
 	std::cout << *rcit_it << std::endl;
@@ -109,7 +109,7 @@ void test() {
 
 	reverse_iterator<iterator> tmp = rit_it;
 	reverse_iterator<const_iterator> tmpc = rcit_it;
-	
+
 	{
 		std::cout << std::endl << "----------> operator == <----------" << std::endl;
 		std::cout << (tmp == rit_it) << std::endl;
@@ -153,13 +153,13 @@ void test() {
 		std::cout << (tmpc <= rcit_it + 1) << std::endl;
 	}
 	{
-		std::cout << std::endl << "----------> other tests <----------" << std::endl;
-		vector<NoLeaksPlease>::const_reverse_iterator itc1;
-		itc1 = v.rbegin();
-		std::cout << *itc1 << std::endl;
-		vector<NoLeaksPlease>::const_reverse_iterator itc2(v.begin());
-		std::cout << *itc2 << std::endl;
-		
+		// std::cout << std::endl << "----------> other tests <----------" << std::endl;
+		// vector<NoLeaksPlease>::const_reverse_iterator itc1;
+		// itc1 = v.rbegin();
+		// std::cout << *itc1 << std::endl;
+		// vector<NoLeaksPlease>::const_reverse_iterator itc2(v.begin());
+		// std::cout << *itc2 << std::endl;
+
 		// vector<NoLeaksPlease>::reverse_iterator it1 = itc1;
 		// std::cout << *it1 << std::endl;
 	}

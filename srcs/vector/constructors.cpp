@@ -2,7 +2,7 @@
 
 int test() {
 
-	std::cout << "----------> Default constructor <----------" << std::endl;	
+	std::cout << "----------> Default constructor <----------" << std::endl;
 	vector<NoLeaksPlease> v;
 	print_vec<vector<NoLeaksPlease> >(v);
 	v.push_back(NoLeaksPlease(3, "test1"));
