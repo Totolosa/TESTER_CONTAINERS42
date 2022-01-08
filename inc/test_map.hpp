@@ -69,15 +69,6 @@ class NoLeaksPlease {
 			for (int i = 0; i < _n; i++)
 				std::cout << "\"" << s[i] << "\"" << std::endl;
 		}
-		NoLeaksPlease & operator=(NoLeaksPlease const & cpy) {
-			if (s != NULL)
-				delete [] s;
-			_n = cpy.getSize();
-			s = new std::string[_n];
-			for (int i = 0; i < cpy.getSize(); i++)
-				s[i] = cpy.getString(i);
-			return *this;
-		}
 		bool operator<(NoLeaksPlease const & rhs) const {
 			if (_n < rhs.getSize())
 				return true;
@@ -87,6 +78,23 @@ class NoLeaksPlease {
 				if (s[i] < rhs.getString(i))
 					return true;
 			return false;
+		}
+		NoLeaksPlease & operator=(NoLeaksPlease const & cpy) {
+			if (s != NULL)
+				delete [] s;
+			_n = cpy.getSize();
+			s = new std::string[_n];
+			for (int i = 0; i < cpy.getSize(); i++)
+				s[i] = cpy.getString(i);
+			return *this;
+		}
+		bool operator==(NoLeaksPlease const & lhs) {
+			if (_n != lhs._n)
+				return false;
+			for (int i = 0; i < _n; i++)
+				if (s[i] != lhs.s[i])
+					return false;
+			return true;
 		}
 		friend std::ostream & operator<<(std::ostream & o, NoLeaksPlease const & rhs) {
 			// o << "_n = " << rhs.getSize() << ", " ;
@@ -99,17 +107,25 @@ class NoLeaksPlease {
 template <typename C>
 void print_map(C &c)
 {
-  for (typename C::iterator it = c.begin(); it != c.end(); ++it)
-    cout << it->first << "|" << std::flush << it->second << " " << std::flush;
-  cout << endl
-       << "size = " << c.size() << endl;
+	if (c.empty()) {
+		std::cout << "Map empty" << std::endl;
+		return ;
+	}
+	for (typename C::iterator it = c.begin(); it != c.end(); ++it)
+		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
+	std::cout << std::endl
+		<< "size = " << c.size() << std::endl;
 }
 
 template <typename C>
 void print_map(const C &c)
 {
-  for (typename C::const_iterator it = c.begin(); it != c.end(); ++it)
-    cout << it->first << "|" << std::flush << it->second << " " << std::flush;
-  cout << endl
-       << "size = " << c.size() << endl;
+	if (c.empty()) {
+		std::cout << "Map empty" << std::endl;
+		return ;
+	}
+	for (typename C::const_iterator it = c.begin(); it != c.end(); ++it)
+		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
+	std::cout << std::endl
+		<< "size = " << c.size() << std::endl;
 }

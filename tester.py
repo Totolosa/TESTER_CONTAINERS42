@@ -19,7 +19,7 @@ class colors:
     UNDERLINE = '\033[4m'
 
 folder_name = "TESTER_CONTAINERS42"
-folder_name = "tester"
+# folder_name = "tester"
 flags = "-Wall -Wextra -Werror -std=c++98"
 
 def main(argv):
