@@ -65,13 +65,13 @@ def main(argv):
 				os.makedirs(path_bin, exist_ok = True)
 				os.makedirs(path_result, exist_ok = True)
 				# if not os.path.exists(path_bin + "_mine") or (os.path.exists(path_bin + "_mine") and os.path.getctime(path_srcs_test) > os.path.getctime(path_bin + "_mine")):
-				subprocess.run(("clang++ -D MINE " + flags + " " + folder_name + "/srcs/main.cpp -I" + folder_name + "/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "_mine").split(), capture_output=False)
+				subprocess.run(("clang++ -D MINE " + flags + " " + folder_name + "/srcs/main.cpp -I" + folder_name + "/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "/mine").split(), capture_output=False)
 				# if not os.path.exists(path_bin + "_std") or (os.path.exists(path_bin + "_std") and os.path.getctime(path_srcs_test) > os.path.getctime(path_bin + "_std")):
-				subprocess.run(("clang++ " + flags + " " + folder_name + "/srcs/main.cpp -I" + folder_name + "/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "_std").split(), capture_output=False)
+				subprocess.run(("clang++ " + flags + " " + folder_name + "/srcs/main.cpp -I" + folder_name + "/inc -I" + path_includes + " " + path_srcs_test + " -o " + path_bin + "/std").split(), capture_output=False)
 				with open((path_result + "/stdout_mine"), "w") as outfile, open((path_result + "/stderror_mine"), "w") as errfile:
-					subprocess.run((path_bin + "_mine ").split(), stdout=outfile, stderr=errfile)
+					subprocess.run((path_bin + "/mine ").split(), stdout=outfile, stderr=errfile)
 				with open((path_result + "/stdout_std"), "w") as outfile, open((path_result + "/stderror_std"), "w") as errfile:
-					subprocess.run((path_bin + "_std").split(), stdout=outfile, stderr=errfile)
+					subprocess.run((path_bin + "/std").split(), stdout=outfile, stderr=errfile)
 
 				with open((path_result + "/diff_stdout"), "w") as outfile:
 					subprocess.run(("diff " + path_result + "/stdout_mine " + path_result + "/stdout_std").split(), stdout=outfile)
@@ -84,13 +84,13 @@ def main(argv):
 				if all_test or leaks_test:
 					print(colors.BOLD + " , leaks: ", end = "")
 					with open((path_result + "/leaks_mine"), "w") as outfile:
-						leaks_mine = subprocess.run(("leaks --atExit -- ./" + path_bin + "_mine").split(), stdout=outfile)
+						leaks_mine = subprocess.run(("leaks --atExit -- ./" + path_bin + "/mine").split(), stdout=outfile)
 					if leaks_mine.returncode == 0:
 						print(colors.BOLD + "mine=" + colors.OKGREEN + "[OK]" + colors.END, end = "")
 					else:
 						print(colors.BOLD + "mine=" + colors.FAIL + "[NOK]" + colors.END, end = "")
 					with open((path_result + "/leaks_std"), "w") as outfile:
-						leaks_std = subprocess.run(("leaks --atExit -- ./" + path_bin + "_std").split(), stdout=outfile)
+						leaks_std = subprocess.run(("leaks --atExit -- ./" + path_bin + "/std").split(), stdout=outfile)
 					if leaks_std.returncode == 0:
 						print(colors.BOLD + ", std=" + colors.OKGREEN + "[OK]" + colors.END)
 					else:

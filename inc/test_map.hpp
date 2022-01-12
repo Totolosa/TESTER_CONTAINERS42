@@ -10,6 +10,32 @@ using namespace std;
 using std::cout;
 using std::endl;
 
+template <typename C>
+void print_map(C &c)
+{
+	if (c.empty()) {
+		std::cout << "Map empty" << std::endl;
+		return ;
+	}
+	for (typename C::iterator it = c.begin(); it != c.end(); ++it)
+		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
+	std::cout << std::endl
+		<< "size = " << c.size() << std::endl;
+}
+
+template <typename C>
+void print_map(const C &c)
+{
+	if (c.empty()) {
+		std::cout << "Map empty" << std::endl;
+		return ;
+	}
+	for (typename C::const_iterator it = c.begin(); it != c.end(); ++it)
+		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
+	std::cout << std::endl
+		<< "size = " << c.size() << std::endl;
+}
+
 /*
             10
            /  \
@@ -97,35 +123,8 @@ class NoLeaksPlease {
 			return true;
 		}
 		friend std::ostream & operator<<(std::ostream & o, NoLeaksPlease const & rhs) {
-			// o << "_n = " << rhs.getSize() << ", " ;
 			for (int i = 0; i < rhs.getSize(); i++)
 				o << "\"" << rhs.getString(i) << "\" " ;
 			return o;
 		}
 };
-
-template <typename C>
-void print_map(C &c)
-{
-	if (c.empty()) {
-		std::cout << "Map empty" << std::endl;
-		return ;
-	}
-	for (typename C::iterator it = c.begin(); it != c.end(); ++it)
-		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
-	std::cout << std::endl
-		<< "size = " << c.size() << std::endl;
-}
-
-template <typename C>
-void print_map(const C &c)
-{
-	if (c.empty()) {
-		std::cout << "Map empty" << std::endl;
-		return ;
-	}
-	for (typename C::const_iterator it = c.begin(); it != c.end(); ++it)
-		std::cout << it->first << "|" << std::flush << it->second << " " << std::flush;
-	std::cout << std::endl
-		<< "size = " << c.size() << std::endl;
-}

@@ -15,6 +15,7 @@ void test()
 		cout << "empty: " << c.empty() << endl;
 		print_map<Map>(c);
 		c[10] = 9;
+		std::cout << "TEST" << std::endl;
 		cout << "empty: " << c.empty() << endl;
 		print_map<Map>(c);
 		c.clear();
