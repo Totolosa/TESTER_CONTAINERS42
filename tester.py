@@ -99,7 +99,7 @@ def main(argv):
 					subprocess.run((path_bin + "/mine ").split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 					my_end = time.time()
 					std_start = time.time()
-					subprocess.run((path_bin + "/mine ").split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+					subprocess.run((path_bin + "/std ").split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 					std_end = time.time()
 					print("TIME : Me = ", round(my_end - my_start, 5), "s , Lib = ", round(std_end - std_start, 5), "s , Me/Lib = ", colors.BOLD + colors.OKGREEN, round((my_end - my_start)/(std_end - std_start), 2), colors.END)
 
