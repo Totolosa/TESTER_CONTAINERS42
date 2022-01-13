@@ -4,6 +4,7 @@ import shutil
 import getopt
 import sys
 import glob
+import time
 
 path_includes = "inc"
 
@@ -24,7 +25,7 @@ flags = "-Wall -Wextra -Werror -std=c++98"
 
 def main(argv):
 	try:
-		opts, args = getopt.getopt(argv,"vsmdlo")
+		opts, args = getopt.getopt(argv,"vsmdlot")
 	except getopt.GetoptError:
 		print ('Problem args tester.py')
 		sys.exit(2)
@@ -34,24 +35,22 @@ def main(argv):
 	map_test = False
 	other_test = False
 	leaks_test = False
+	time_test = False
 	for opt, arg in opts:
 		if opt == "-v" : vector_test = True
 		if opt == "-s" : stack_test = True
 		if opt == "-m" : map_test = True
 		if opt == "-o" : other_test = True
 		if opt == "-l" : leaks_test = True
+		if opt == "-t" : time_test = True
 		if opt == "-d" :
 			if os.path.exists(folder_name + "/results"):
 				shutil.rmtree(folder_name + "/results");
 			if os.path.exists(folder_name + "/bin"):
 				shutil.rmtree(folder_name + "/bin")
-	# print("all_test = ", all_test)
-	# print("vector_test = ", vector_test)
-	# print("stack_test = ", stack_test)
-	# print("map_test = ", map_test)
-	# print("leaks_test = ", leaks_test)
 
 	dirs = os.listdir(folder_name + "/srcs")
+	if "main.cpp" in dirs : dirs.remove("main.cpp")
 	if "main.cpp" in dirs : dirs.remove("main.cpp")
 	if "tester.py" in dirs : dirs.remove("tester.py")
 	for dir in dirs:
@@ -95,6 +94,16 @@ def main(argv):
 						print(colors.BOLD + ", std=" + colors.OKGREEN + "[OK]" + colors.END)
 					else:
 						print(colors.BOLD + ", std=" + colors.FAIL + "[NOK]" + colors.END)
+				if all_test or time_test:
+					my_start = time.time()
+					subprocess.run((path_bin + "/mine ").split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+					my_end = time.time()
+					std_start = time.time()
+					subprocess.run((path_bin + "/mine ").split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+					std_end = time.time()
+					print("TIME : Me = ", round(my_end - my_start, 5), "s , Lib = ", round(std_end - std_start, 5), "s , Me/Lib = ", colors.BOLD + colors.OKGREEN, round((my_end - my_start)/(std_end - std_start), 2), colors.END)
+
+
 
 if __name__ == "__main__":
    main(sys.argv[1:])

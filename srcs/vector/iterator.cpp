@@ -30,7 +30,7 @@ void test() {
 	vector<NoLeaksPlease>::iterator it_def;
 	vector<NoLeaksPlease>::const_iterator itc_def;
 	vector<NoLeaksPlease>::iterator it_it(v.begin());
-	vector<NoLeaksPlease>::const_iterator itc_it(vc.begin() + 1);
+	vector<NoLeaksPlease>::const_iterator itc_it(v.begin() + 1);
 	std::cout << *it_it << std::endl;
 	std::cout << *itc_it << std::endl;
 	vector<NoLeaksPlease>::iterator it_cpy(it_it);
@@ -119,6 +119,8 @@ void test() {
 		std::cout << (tmpc == itc_it) << std::endl;
 		std::cout << (tmp == it_it + 1) << std::endl;
 		std::cout << (tmpc == itc_it + 1) << std::endl;
+		std::cout << (tmp == itc_it) << std::endl;
+		std::cout << (tmpc == it_it) << std::endl;
 	}
 	{
 		std::cout << std::endl << "----------> operator != <----------" << std::endl;
@@ -126,6 +128,8 @@ void test() {
 		std::cout << (tmpc != itc_it) << std::endl;
 		std::cout << (tmp != it_it + 1) << std::endl;
 		std::cout << (tmpc != itc_it + 1) << std::endl;
+		std::cout << (tmp != itc_it) << std::endl;
+		std::cout << (tmpc != it_it) << std::endl;
 	}
 	{
 		std::cout << std::endl << "----------> operator > <----------" << std::endl;
@@ -133,6 +137,12 @@ void test() {
 		std::cout << (tmpc > itc_it) << std::endl;
 		std::cout << (tmp > it_it + 1) << std::endl;
 		std::cout << (tmpc > itc_it + 1) << std::endl;
+		std::cout << (tmp > itc_it) << std::endl;
+		std::cout << (tmpc > it_it) << std::endl;
+		// std::cout << "tmp.ptr = " << tmp.operator->() << std::endl;
+		// std::cout << "tmpc.ptr = " << tmpc.operator->() << std::endl;
+		// std::cout << "it_it.ptr = " << it_it.operator->() << std::endl;
+		// std::cout << "itc_it.ptr = " << itc_it.operator->() << std::endl;
 	}
 	{
 		std::cout << std::endl << "----------> operator >= <----------" << std::endl;
@@ -140,13 +150,17 @@ void test() {
 		std::cout << (tmpc >= itc_it) << std::endl;
 		std::cout << (tmp >= it_it + 1) << std::endl;
 		std::cout << (tmpc >= itc_it + 1) << std::endl;
+		std::cout << (tmp >= itc_it) << std::endl;
+		std::cout << (tmpc >= it_it) << std::endl;
 	}
-	{
 		std::cout << std::endl << "----------> operator < <----------" << std::endl;
+	{
 		std::cout << (tmp < it_it) << std::endl;
 		std::cout << (tmpc < itc_it) << std::endl;
 		std::cout << (tmp < it_it + 1) << std::endl;
 		std::cout << (tmpc < itc_it + 1) << std::endl;
+		std::cout << (tmp < itc_it) << std::endl;
+		std::cout << (tmpc < it_it) << std::endl;
 	}
 	{
 		std::cout << std::endl << "----------> operator <= <----------" << std::endl;
@@ -154,6 +168,8 @@ void test() {
 		std::cout << (tmpc <= itc_it) << std::endl;
 		std::cout << (tmp <= it_it + 1) << std::endl;
 		std::cout << (tmpc <= itc_it + 1) << std::endl;
+		std::cout << (tmp <= itc_it) << std::endl;
+		std::cout << (tmpc <= it_it) << std::endl;
 	}
 
 	{

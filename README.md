@@ -9,7 +9,6 @@ Steps to test your project:
 1) Clone the repository directly in your FT_CONTAINERS repository using :
 	https://github.com/Totolosa/TESTER_CONTAINERS42.git
 
-
 2) Modify the variable "path include" in the line 8 of the file TERSTER_CONTAINER42/tester.py :
 	Put the path to your includes files .hpp. By default it's "inc"
 
@@ -21,6 +20,7 @@ Steps to test your project:
 	• "-s" to test the STACK part
 	• "-m" to test the MAP part
 	• "-l" to test leaks on all parts tested
+	• "-l" to test execution time
 	• "-d" to delete bin and result repositories in TESTER_CONTAINERS42/
 
 

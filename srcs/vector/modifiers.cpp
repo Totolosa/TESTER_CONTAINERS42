@@ -74,20 +74,36 @@ int test() {
 
 	std::cout << "----------> swap <----------" << std::endl;
 	vector<NoLeaksPlease> v2;
-	v2.push_back(NoLeaksPlease(1, "test"));
-	v2.push_back(NoLeaksPlease(1, "test"));
-	v2.push_back(NoLeaksPlease(1, "test"));
-	v2.push_back(NoLeaksPlease(1, "test"));
-	v2.push_back(NoLeaksPlease(1, "test"));
-	std::cout << "v :" << std::endl;
-	print_vec<vector<NoLeaksPlease> >(v);
+	v2.push_back(NoLeaksPlease(1, "test1"));
+	v2.push_back(NoLeaksPlease(1, "test2"));
+	v2.push_back(NoLeaksPlease(1, "test3"));
+	v2.push_back(NoLeaksPlease(1, "test4"));
+	v2.push_back(NoLeaksPlease(1, "test5"));
+	vector<NoLeaksPlease>::iterator it2 = v2.begin() + 2;
+	vector<NoLeaksPlease> v3;
+	v3.push_back(NoLeaksPlease(1, "test6"));
+	v3.push_back(NoLeaksPlease(1, "test7"));
+	v3.push_back(NoLeaksPlease(1, "test8"));
+	v3.push_back(NoLeaksPlease(1, "test9"));
+	v3.push_back(NoLeaksPlease(1, "test10"));
+	vector<NoLeaksPlease>::iterator it3 = v3.begin() + 2;
 	std::cout << "v2 :" << std::endl;
 	print_vec<vector<NoLeaksPlease> >(v2);
-	v.swap(v2);
-	std::cout << "v :" << std::endl;
-	print_vec<vector<NoLeaksPlease> >(v);
+	std::cout << "it2 = " << *it2 << std::endl;
+	std::cout << "v3 :" << std::endl;
+	print_vec<vector<NoLeaksPlease> >(v3);
+	std::cout << "it3 = " << *it3 << std::endl;
+	v2.swap(v3);
+
 	std::cout << "v2 :" << std::endl;
 	print_vec<vector<NoLeaksPlease> >(v2);
+	std::cout << "it2 = " << *it2 << std::endl;
+	std::cout << "v3 :" << std::endl;
+	print_vec<vector<NoLeaksPlease> >(v3);
+	std::cout << "it3 = " << *it3 << std::endl;
+	std::cout << "++it2 = " << *(++it2) << std::endl;
+	std::cout << "++it3 = " << *(++it3) << std::endl;
+
 
 	std::cout << "----------> clear <----------" << std::endl;
 	print_vec<vector<NoLeaksPlease> >(v);
